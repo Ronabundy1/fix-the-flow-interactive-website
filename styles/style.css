@@ -1,4 +1,19 @@
-/* Stijlen voor de hele pagina */
+/* custome properties moet nog aanpassen */
+:root
+{
+    --primary-color: #7faec5;
+    --secondary-color: #4ecd5d;
+    --text-color: #384b61;
+    --background-color: #f5f5f5;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0; /* Voeg wat marges toe om de content van de randen weg te duwen */
@@ -21,7 +36,7 @@ body {
   }
   
   .contact-button a {
-    display: block; 
+    display: block; /* zorgt ervoor dat de knop de volledige breedte van de container inneemt */
     padding: 10px; 
     background-color: #4ecd5d; 
     color: #fff; 
@@ -129,7 +144,26 @@ body {
     text-align: justify;
     margin-bottom: 25px;
   }
+
   
+  .flex-container {
+    display: flex;
+}
+
+.column {
+  flex: 1; /* goede ruimte voor kolommen */
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 5px; 
+  transition: background-color 0.3s ease; 
+}
+
+.column:hover {
+  background-color: #ccc; /* Nieuwe kleur bij hover met muis */
+  cursor: pointer; 
+}
+
+
   
   
   /* Media query voor smartphones */
@@ -174,4 +208,6 @@ body {
       margin-bottom: 15px;
     }
   }
+  
+  
   

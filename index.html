@@ -44,7 +44,61 @@
             </p>
         </div>
 
-        <!--Sectie over de oplossing-->
+        <!--Sectie over het probleem-->
+
+        <div class="Columns">
+            <div class="row flex-container">
+                <div class="column">Waterkwaliteit</div>
+                <div class="column">Projecten</div>
+                <div class="column">Videos</div>
+            </div>
+            <div class="row">
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="probleem_section">
+            <h2>Probleem: Wateroverlast door Klimaatverandering</h2>
+            <p>
+                Klimaatverandering heeft geleid tot meer droogte en wateroverlast door intense buien. Ons riool kan dit vaak niet aan, met als gevolg wateroverlast en vervuild rioolwater in ons kwetsbare oppervlaktewater.
+                <!-- Rest van de beschrijving van het probleem -->
+            </p>
+            <button onclick="toggleSections()">Bekijk Oplossingen</button>
+        </div>
+        
+        <div class="oplossing_section" style="display: none;">
+            <h2>Oplossing: Slim Omgaan met Regenwater</h2>
+            <p>
+                Het is tijd om ons regenwater massaal vast te houden en te hergebruiken. Een simpele stap zoals het installeren van een regenton kan al enorm helpen. Wil je weten hoe je dit proces kunt automatiseren? Ontdek hier slimme oplossingen voor het efficiënt omgaan met regenwater!
+                <!-- Informatie over oplossingen -->
+            </p>
+            <button onclick="toggleSections()">Bekijk Probleem</button>
+        </div>
+        
+        <script>
+            function toggleSections() {
+                const probleemSection = document.querySelector('.probleem_section');
+                const oplossingSection = document.querySelector('.oplossing_section');
+        
+                if (probleemSection.style.display = 'none') {
+                    probleemSection.style.display = 'block';
+                    oplossingSection.style.display = 'none';
+                } else {
+                    probleemSection.style.display = 'none';
+                    oplossingSection.style.display = 'block';
+                }
+            }
+        </script>
+        
+
+        
+
+
+
+        
+
         
 
 
