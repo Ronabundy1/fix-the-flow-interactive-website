@@ -55,6 +55,7 @@ body {
     height: auto;
     max-height: 50px;
   }
+
   
   nav ul {
     margin: 0;
@@ -163,8 +164,6 @@ body {
   cursor: pointer; 
 }
 
-
-  
   
   /* Media query voor smartphones */
   @media only screen and (max-width: 768px) {
@@ -209,5 +208,7 @@ body {
     }
   }
   
-  
+  .hidden {
+    display: none;
+}
   
