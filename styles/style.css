@@ -211,4 +211,78 @@ body {
   .hidden {
     display: none;
 }
+
+/* Style voor section */
+.probleem_section {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.probleem_section h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.probleem_section p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.probleem_section button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.probleem_section button:hover {
+  background-color: #45a049;
+}
+
+/* Style voor section */
+.oplossing_section {
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.oplossing_section h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.oplossing_section p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.oplossing_section button {
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.oplossing_section button:hover {
+  background-color: #0b7dda;
+}
+
+/* sectie word verberg */
+.hidden {
+  display: none;
+}
+
   
