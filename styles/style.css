@@ -56,6 +56,14 @@ body {
     max-height: 50px;
   }
 
+  nav {
+    position: fixed; /* navigatiebalk blijft bovenaan staan */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+
   
   nav ul {
     margin: 0;
