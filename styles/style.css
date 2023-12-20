@@ -20,6 +20,11 @@ body {
     padding: 0;
   }
   
+  p {
+    line-height: 1.6;
+    color: var(--text-color);
+   
+  }
   /* Algemene stijlen voor de navigatiebalk */
   nav {
     background-color: #7faec5; /* Achtergrondkleur van de navigatiebalk */
@@ -63,6 +68,23 @@ body {
     z-index: 1000;
   }
   
+  .col {
+    position: relative;
+}
+
+.col:hover::after {
+    content: 'Click to learn more';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none; /* zorgt dat er geen probleem is met overlay */
+}
 
   
   nav ul {
@@ -112,8 +134,7 @@ body {
     flex: 1 1 45%; /* kolom ziet er hierdoor wat beter uit */
     text-align: center;
   }
-
-  .gallery {
+.gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -123,16 +144,18 @@ body {
     position: relative;
     width: 100%;
     height: auto;
+    overflow: hidden; /* Ensure text won't overflow */
 }
 
 .gallery__item img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    transition: transform 0.3s ease; /* Add a transition for image scaling */
 }
 
 .image-text {
-    display: none;
+    opacity: 0; /* Initially hide the text */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -142,11 +165,17 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+    transition: opacity 0.3s ease; /* Add transition for opacity change */
+}
+
+.gallery__item:hover img {
+    transform: scale(1.1); /* Scale up the image on hover */
 }
 
 .gallery__item:hover .image-text {
-    display: block;
+    opacity: 1; /* Show the text on hover */
 }
+
 
       
   h1
@@ -259,17 +288,78 @@ body {
 }
 
 /* Style voor section */
+/* Animatie bij het laden van de pagina */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stijl voor de secties */
 .probleem_section {
-  background-color: #f2f2f2;
+  background-image: url('achtergrondafbeelding.jpg');
+  background-size: cover;
+  background-position: center;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+  margin: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-out;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-.probleem_section h2 {
+.probleem_section:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Stijl voor tekstsectie */
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 20px;
   color: #333;
+  font-size: 18px;
+}
+
+/* Stijl voor afbeeldingsectie */
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Stijl voor de knop */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff4500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
+}
+
+.btn:hover {
+  background-color: #e63900;
+  transform: scale(1.1);
+}
+/* Probleem section styles */
+.probleem_section h2 {
+  color: #7faec5; /* Blue color for h2 in probleem_section */
   font-size: 24px;
   margin-bottom: 10px;
+  background-color: white; /* White background */
+  padding: 10px; /* Padding for better visibility */
 }
 
 .probleem_section p {
@@ -292,18 +382,28 @@ body {
   background-color: #45a049;
 }
 
-/* Style voor section */
+/* Oplossing section styles */
 .oplossing_section {
-  background-color: #e0e0e0;
+  background-color: white; /* White background */
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+  margin: 80px; /* This margin seems redundant */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-out;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.oplossing_section:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .oplossing_section h2 {
-  color: #333;
+  color: #7faec5; /* Blue color for h2 in oplossing_section */
   font-size: 24px;
   margin-bottom: 10px;
+  background-color: white; /* White background */
+  padding: 10px; /* Padding for better visibility */
 }
 
 .oplossing_section p {
@@ -315,7 +415,7 @@ body {
 .oplossing_section button {
   padding: 10px 20px;
   background-color: #e0e0e0;
-  color: white;
+  color: white; /* Text color for the button */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -323,12 +423,98 @@ body {
 }
 
 .oplossing_section button:hover {
-  background-color: #0b7dda;
+  background-color: var(--secondary-color); /* Background color of the button on hover */
 }
 
-/* sectie word verberg */
+/* Hide section */
 .hidden {
   display: none;
 }
 
-  
+/* Blue color for h2 within hidden section */
+.hidden h2 {
+  color: #7faec5;
+  background-color: white; /* White background */
+  padding: 10px; /* Padding for better visibility */
+}
+
+/* Algemene stijl voor secties */
+section {
+  padding: 50px;
+  border-radius: 8px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Verdelen in twee kolommen */
+  gap: 20px; /* Ruimte tussen de kolommen */
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+/* Functies sectie */
+.features_section {
+  background-color: #f9f9f9;
+}
+
+.features_section:hover {
+  background-color: #e5e5e5;
+}
+
+.features_section h2 {
+  color: #4ecd5d;
+  font-size: 32px;
+  transition: color 0.3s ease, font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.features_section p {
+  color: #384b61;
+  font-size: 18px;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+/* De b-RAIN App sectie */
+.app_features {
+  background-color: #7faec5;
+  color: #fff;
+}
+
+.app_features h2 {
+  font-size: 36px;
+  transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.app_features p {
+  font-size: 20px;
+  transition: font-size 0.3s ease;
+}
+
+/* Ondersteuning sectie */
+.support_section {
+  background-color: #f5f5f5;
+}
+
+.support_section h2 {
+  color: #4ecd5d;
+  font-size: 28px;
+  transition: color 0.3s ease, font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.support_section p {
+  color: #384b61;
+  font-size: 16px;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+/* Responsieve aanpassing */
+@media screen and (max-width: 768px) {
+  section {
+    grid-template-columns: 1fr; /* Een kolom op kleinere schermen */
+  }
+}
